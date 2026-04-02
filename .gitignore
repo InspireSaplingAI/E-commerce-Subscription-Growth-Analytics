@@ -1,0 +1,58 @@
+# Data (exclude raw data to keep repo lightweight)
+data/raw/
+data/processed/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# OS
+.DS_Store
+Thumbs.db
+
+# AWS credentials (never commit these!)
+.aws/credentials
+.env
+.env.local
+
+# Streamlit
+.streamlit/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+tmp/
+temp/
+
+# Tableau (only commit .twb files, not backups)
+*.twb~
+*.twbx
+
+# Virtual environments
+pip-log.txt
+pip-delete-this-directory.txt
