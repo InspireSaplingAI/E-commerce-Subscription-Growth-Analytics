@@ -23,6 +23,12 @@ def main():
         page_icon="📊",
         layout="wide"
     )
+
+    # TODO: Initialize session state for persistent values across reruns
+    # if "data_loaded" not in st.session_state:
+    #     st.session_state["data_loaded"] = False
+    # if "selected_segment" not in st.session_state:
+    #     st.session_state["selected_segment"] = None
     
     st.title("📊 E-commerce Growth & A/B Testing Platform")
     
@@ -45,6 +51,10 @@ def main():
     # TODO: Add configuration options in sidebar
     # st.sidebar.header("⚙️ Configuration")
     # data_source = st.sidebar.radio("Data Source", ["Local SQLite", "AWS S3"])
+
+    # TODO: Add sidebar widgets for user input (e.g. date range, segment filter)
+    # date_range = st.sidebar.date_input("Date Range", [])
+    # segment_filter = st.sidebar.multiselect("Segments", ["Champions", "Loyal", "At Risk"])
     
     if analysis_type == "Home":
         render_home_page()
@@ -81,6 +91,12 @@ def render_home_page():
     """)
 
 
+# TODO: Add @st.cache_data decorator to all data loading functions to avoid reloading on every rerun
+# Example:
+# @st.cache_data
+# def load_rfm_data(source):
+#     return pd.read_csv("data/processed/rfm_segments.csv")
+
 def render_rfm_page():
     """Render RFM Segmentation page."""
     st.header("👥 User Segmentation (RFM Analysis)")
@@ -105,6 +121,14 @@ def render_rfm_page():
     #     })
     #     st.dataframe(rfm_df)
     
+    # TODO: Use st.columns() to display RFM metric cards side by side
+    # col1, col2, col3 = st.columns(3)
+    # with col1: st.metric("Champions", count, delta)
+
+    # TODO: Use st.selectbox() or st.radio() to let user filter by segment
+    # selected_segment = st.selectbox("Filter by Segment", segments)
+    # Store in session state: st.session_state["selected_segment"] = selected_segment
+
     st.warning("⏳ Awaiting data loading implementation in Notebook 1")
 
 
@@ -147,6 +171,12 @@ def render_ab_testing_page():
         # TODO: Run T-test for AOV
         # TODO: Display results
     
+    # TODO: Use st.tabs() to separate Conversion Rate and AOV analysis into cleaner tabs
+    # tab1, tab2 = st.tabs(["Conversion Rate", "AOV Analysis"])
+
+    # TODO: Store analysis results in st.session_state to avoid re-running on widget interaction
+    # st.session_state["ab_results"] = results
+
     st.warning("⏳ Awaiting statistical test implementation in src/analysis/ab_test.py")
 
 
@@ -164,6 +194,15 @@ def render_funnel_page():
     
     # TODO: Load funnel data and calculate conversion rates
     
+    # TODO: Use st.columns() to display each funnel step as a metric card
+    # col1, col2, col3, col4 = st.columns(4)
+    # with col1: st.metric("Page Visit", visits)
+    # with col2: st.metric("Add to Cart", carts, f"{cart_rate}%")
+
+    # TODO: Use @st.cache_data on funnel data loader to avoid reloading on each rerun
+    # @st.cache_data
+    # def load_funnel_data(): return pd.read_csv("data/processed/funnel_metrics.csv")
+
     st.warning("⏳ Awaiting funnel data implementation in Notebook 2")
 
 
